@@ -1,0 +1,18 @@
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href='public/css/forms.css' rel='stylesheet' type='text/css'>
+
+<h1>Registration</h1>
+<hr>
+<div class="form-style-10">
+<h1>Next Level Signup<span>{{#if message}}<div class="error">{{ message }}</div>{{/if}}</span></h1>
+<form method="POST" action="signup">
+    <div class="inner-wrap">
+        <label>Email Address <input type="email" name="email" /></label>
+        <label>Username <input type="text" name="username" /></label>
+        <label>Password <input type="password" name="password" /></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="register" value="Submit" />
+    </div>
+</form>
+</div>

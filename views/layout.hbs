@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+<title>GAMES APP</title>
+<style>
+</style>
+<link rel="stylesheet" href="public/css/main.css">
+</head>
+<nav class="navbar">
+        <span class="navbar-toggle" id="js-navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+        <a href="/" class="logo"><img src="public/images/nextLogo.png" alt="Game Review Site" style="height: 70px; width: 90px"></a>
+        <ul class="main-nav" id="js-menu">
+            <li>
+                <a href="./" class="nav-links">Mainfeed</a>
+            </li>
+            <li>
+                <a href="/games" class="nav-links">Games</a>
+            </li>
+            {{#unless user}}
+            <li>
+                <a href="/login" class="nav-links">Login</a>
+            </li>
+            {{/unless}}
+            {{#if user}}
+            <li>
+                <a href="/profile" class="nav-links">My Profile</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+<body>
+	{{{body}}}
+</body>
+</head>
+</html>

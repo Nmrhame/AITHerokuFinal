@@ -1,0 +1,23 @@
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href='public/css/forms.css' rel='stylesheet' type='text/css'>
+
+{{#if message}}
+<div class="error">{{ message }}</div>
+{{/if}}
+<h1>Login</h1>
+<div class="form-style-10">
+<h1>Next Level Login<span>Remember Your Username & Password?</span></h1>
+<form action="login" method="POST">
+    <div class="section"><span>1</span>Username</div>
+    <div class="inner-wrap">
+        <label>Username <input type="text" name="username" /></label>
+		<label>Password <input type="password" name="password" /></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Sign Up" />
+     <span class="privacy-policy">
+	 <a href="/signup">Register for a New Account</a>
+     </span>
+    </div>
+</form>
+</div>

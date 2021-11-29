@@ -1,0 +1,40 @@
+<h1 style="padding: 20px; margin-bottom: 10px;">Next Level Most Recent Reviews</h1>
+
+<hr>
+<table class="styled-table">
+	<thead>
+		<th>Reviewer</th>
+        <th>Review Title</th>
+		<th>Game Name</th>
+		<th>Review</th>
+        <th>Rating</th>
+		<th>GameImage</th>
+	</thead>
+	<tbody>
+		{{reverse reviews}}
+		{{#each reviews}}
+		<tr>
+			<td><a href="/profile?profile={{this.reviewer}}">{{this.reviewer}}</a></td>
+            <td>{{this.title}}</td>
+			<td>{{this.gameName}}</td>
+			<td>{{this.text}}</td>
+            <td>{{this.rating}}</td>
+			<td><img style="width:175px;height:125px;" src="{{this.gameImage}}" alt="Image"></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	// This is the function that will be called when the page loads
+	// It adds a class of active-row to a td element on hover
+	$(document).ready(function() {
+		$("tr").hover(function() {
+			$(this).addClass("active-row");
+		}, function() {
+			$(this).removeClass("active-row");
+		});
+	});
+</script>

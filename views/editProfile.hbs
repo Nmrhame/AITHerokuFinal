@@ -1,0 +1,27 @@
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href='public/css/forms.css' rel='stylesheet' type='text/css'>
+
+
+<h1>Editing {{user.username}}'s Profile</h1>
+<hr>
+<div class="form-style-10" >
+<h1>Edit Below<span>{{#if message}}<div class="error">{{ message }}</div>{{/if}}</span></h1>
+<form method="POST" action="editProfile" enctype="multipart/form-data">
+    <div class="inner-wrap">
+        <label>Avatar Image</label> <input type = "file" accept="image/*" name ="avatar" value = {{user.avatar}}/>
+        <br>
+        <label>Description<textarea rows="8" cols="75" name="description">{{user.description}}</textarea></label>
+        <label>Games Played<input type="number" name="havePlayed" value = {{user.havePlayed}}/></label>
+        <label for="game">Favorite Game<select class="form-control" id="favoriteGame" name="favoriteGame">
+        <!--For each game in the games array, create a new option-->
+            {{#each games}}
+                <option value="{{this.gameName}}">{{this.gameName}}</option>
+            {{/each}}
+            </select>
+        </label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="editProfile" value="Submit" />
+    </div>
+</form>
+</div>

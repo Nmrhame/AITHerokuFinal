@@ -1,0 +1,39 @@
+<h1 style="padding: 20px; margin-bottom: 10px;">Games Database</h1>
+<table class = "styled-table">
+	<thead>
+		<th>Game</th>
+		<th>Genre</th>
+		<th>Release Date</th>
+        <th>Description</th>
+        <th>Platform</th>
+		<th>Community Score</th>
+        <th>Image</th>
+	</thead>
+	<tbody>
+		{{#each games}}
+		<tr>
+			<td>{{this.gameName}}</td>
+			<td>{{this.gameGenre}}</td>
+			<td>{{this.gameReleaseDate}}</td>
+            <td>{{this.gameDescription}}</td>
+            <td>{{this.gamePlatform}}</td>
+			<td>{{average this.gameRating}}</td>
+            <td><img style="width:150px;height:100px;" src="{{this.gameImage}}" alt="Image"></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	// This is the function that will be called when the page loads
+	// It adds a class of active-row to a td element on hover
+	$(document).ready(function() {
+		$("tr").hover(function() {
+			$(this).addClass("active-row");
+		}, function() {
+			$(this).removeClass("active-row");
+		});
+	});
+</script>

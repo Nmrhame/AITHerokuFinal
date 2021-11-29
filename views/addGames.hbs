@@ -1,0 +1,70 @@
+
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<link href='public/css/forms.css' rel='stylesheet' type='text/css'>
+<h1>Admin Panel</h1>
+<hr>
+<div class="form-style-10">
+<h1>Add A Game<span>Add Sick Games</span></h1>
+<form  method ="POST" action="/addGame" enctype="multipart/form-data">
+    <div class="section"><span>1</span></div>
+    <div class="inner-wrap">
+        <label>Game Name<input type="text" name = "gameName" placeholder="Dark Souls"></label>
+		<label>Genre <input type = "text" name = "gameGenre" placeholder="Action"></label>
+        <label>Platform <input type = "text" name = "gamePlatform" placeholder="Switch"></label>
+        <label>Release Date <input type = "text" name = "gameReleaseDate" placeholder="2011"></label>
+        <label>Game Image<input type = "file" accept="image/*" name = "gameImage"></label>
+        <label>Game Image<div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="reviewText" name="gameDescription" rows="7"></textarea>
+    </div></label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Sign Up" />
+     <span class="privacy-policy">
+	 <a href="/signup">Register for a New Account</a>
+     </span>
+    </div>
+</form>
+</div>
+
+<br>
+
+<h1>User Database!</h1>
+<table class = 'styled-table'>
+	<thead>
+		<th>User</th>
+        <th>Authority</th>
+		<th>Email</th>
+		<th>Remove</th>
+	</thead>
+	<tbody>
+		{{#each users}}
+		<tr>
+			<td>{{this.username}}</td>
+            <td>{{this.authority}}</td>
+			<td>{{this.email}}</td>
+			<!--Remove button-->
+			<td><form method = "POST" action = "/removeUser">
+				<input type = "hidden" name = "user" value = "{{this.username}}">
+				<input type = "submit" value = "Remove">
+			</form></td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+	// This is the function that will be called when the page loads
+	// It adds a class of active-row to a td element on hover
+	$(document).ready(function() {
+		$("tr").hover(function() {
+			$(this).addClass("active-row");
+		}, function() {
+			$(this).removeClass("active-row");
+		});
+	});
+</script>
+
